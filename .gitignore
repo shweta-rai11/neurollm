@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.venv_check/
+venv/
+*.db
+backend/ai_brain.db
+.pytest_cache/
+
+# Trained probe artifacts (regenerate with `python -m app.probes.train`;
+# docs/PROBE_RESULTS.md, the human-readable report, IS tracked).
+backend/app/probes/saved/
+
+# Node / frontend
+node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
+frontend/vite.config.js
+frontend/vite.config.d.ts
+npm-debug.log*
+
+# Env / secrets
+.env
+.env.local
+*.env
+# frontend/.env.production holds a machine-specific LAN IP (see
+# frontend/.env.production.example for the template) -- not a secret
+# exactly, but machine-identifying and not something to publish.
+frontend/.env.production
+frontend/.env.production
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Docker
+*.pid
+
+# Capacitor native projects (frontend/ios, frontend/android) ARE committed --
+# only their machine-specific/build artifacts are ignored. See frontend/MOBILE.md.
+frontend/ios/App/Pods/
+frontend/ios/App/build/
+frontend/ios/App/DerivedData/
+frontend/android/.gradle/
+frontend/android/local.properties
+frontend/android/app/build/
+frontend/android/build/
+frontend/android/captures/
+frontend/android/*.iml
+frontend/android/.idea/

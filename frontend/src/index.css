@@ -1,0 +1,60 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-void text-ink-primary font-sans antialiased;
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.25);
+  }
+}
+
+@layer components {
+  /* Glass panel: subtle border, faint backdrop blur, near-black translucent fill */
+  .glass-panel {
+    @apply relative rounded-xl border border-panel-border bg-panel/70 shadow-glass backdrop-blur-md;
+  }
+
+  .glass-panel-hover {
+    @apply transition-colors duration-200 hover:border-cyan-accent/30;
+  }
+
+  /* Section label, small caps, muted */
+  .section-label {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-muted;
+  }
+
+  /* Meter: fill carries magnitude via a single hue; unfilled track is a lighter
+     step of the same ramp so state reads across the whole bar (dataviz skill). */
+  .meter-track {
+    @apply relative h-1.5 w-full overflow-hidden rounded-full bg-cyan-faint;
+  }
+
+  .meter-fill {
+    @apply h-full rounded-full bg-cyan-accent transition-[width] duration-500 ease-out;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-md border px-2 py-0.5 text-xs font-medium;
+  }
+}

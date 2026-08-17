@@ -1,0 +1,68 @@
+# AI-Brain -- local/demo Docker Compose setup.
+#
+# NOTE: this is intended for local development and demos only, NOT a
+# production multi-instance deployment. The backend uses a single SQLite
+# file and an in-memory (per-process) rate limiter, so it only works
+# correctly when run as a single backend container/process. Scaling the
+# backend service to multiple replicas would give each instance its own
+# rate-limit state and risks concurrent SQLite writers.
+#
+# The local model (torch/transformers) makes the backend image large and
+# slow to build, and runs CPU-only in this container (no Apple MPS
+# passthrough) -- expect local_hf requests to be noticeably slower here than
+# running the backend natively on Apple Silicon. Set ENABLE_LOCAL_MODEL=0 to
+# skip offering it if you only need the mock/OpenAI providers.
+#
+# Usage:
+#   cp .env.example .env   # optional -- fill in OPENAI_API_KEY etc. if desired
+#   docker compose up --build
+#
+# The app works with no .env file at all: Compose only reads a root-level
+# .env for ${VAR} interpolation below (no error if it's missing), and every
+# variable has a "-<default>" fallback matching backend/app/config.py's own
+# defaults, and the OpenAI key intentionally defaults to blank since the
+# app has a MockProvider fallback and doesn't require it.
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      DEFAULT_MODEL: ${DEFAULT_MODEL:-mock}
+      ENABLE_LOCAL_MODEL: ${ENABLE_LOCAL_MODEL:-1}
+      DEFAULT_NUM_SAMPLES: ${DEFAULT_NUM_SAMPLES:-5}
+      MAX_NUM_SAMPLES: ${MAX_NUM_SAMPLES:-10}
+      # Overrides the config.py default (sqlite:///./ai_brain.db) to point at
+      # the /app/data directory, which is backed by the named volume below so
+      # the database survives container restarts/recreation.
+      DATABASE_URL: sqlite:////app/data/ai_brain.db
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173,http://localhost:3000}
+      MAX_REQUEST_BODY_BYTES: ${MAX_REQUEST_BODY_BYTES:-65536}
+      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-60}
+    volumes:
+      - backend_data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      # host:container -- app is reachable at http://localhost:3000
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  backend_data:

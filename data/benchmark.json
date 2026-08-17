@@ -1,0 +1,69 @@
+{
+  "version": "1.0",
+  "description": "NeuroLLM MVP benchmark: spec section 9 categories. `expected_answer`/`match_type` are only populated for objectively-checkable categories (factual, mathematical, logical) so /api/experiment/benchmark can score real accuracy; every other category is left null rather than guessed, per the project's no-fabricated-numbers rule (see data/README.md).",
+  "items": [
+    {"id": "fact-1", "category": "factual", "query": "What is the capital of Canada?", "expected_answer": "Ottawa", "match_type": "substring"},
+    {"id": "fact-2", "category": "factual", "query": "What is the chemical symbol for gold?", "expected_answer": "Au", "match_type": "substring"},
+    {"id": "fact-3", "category": "factual", "query": "Who wrote the play Romeo and Juliet?", "expected_answer": "Shakespeare", "match_type": "substring"},
+    {"id": "fact-4", "category": "factual", "query": "What is the largest planet in our solar system?", "expected_answer": "Jupiter", "match_type": "substring"},
+    {"id": "fact-5", "category": "factual", "query": "In what year did World War II end?", "expected_answer": "1945", "match_type": "substring"},
+    {"id": "fact-6", "category": "factual", "query": "What is the capital of Australia?", "expected_answer": "Canberra", "match_type": "substring"},
+    {"id": "fact-7", "category": "factual", "query": "What is the freezing point of water in Celsius?", "expected_answer": "0", "match_type": "numeric"},
+    {"id": "fact-8", "category": "factual", "query": "Which ocean is the largest by surface area?", "expected_answer": "Pacific", "match_type": "substring"},
+
+    {"id": "math-1", "category": "mathematical", "query": "What is 17 times 24? Answer with just the number.", "expected_answer": "408", "match_type": "numeric"},
+    {"id": "math-2", "category": "mathematical", "query": "What is 144 divided by 12? Answer with just the number.", "expected_answer": "12", "match_type": "numeric"},
+    {"id": "math-3", "category": "mathematical", "query": "What is 15% of 200? Answer with just the number.", "expected_answer": "30", "match_type": "numeric"},
+    {"id": "math-4", "category": "mathematical", "query": "What is the sum of the first 10 positive integers? Answer with just the number.", "expected_answer": "55", "match_type": "numeric"},
+    {"id": "math-5", "category": "mathematical", "query": "What is 9 squared? Answer with just the number.", "expected_answer": "81", "match_type": "numeric"},
+    {"id": "math-6", "category": "mathematical", "query": "A train travels 60 mph for 2 hours, then 40 mph for 1 hour. What is the total distance traveled in miles? Answer with just the number.", "expected_answer": "160", "match_type": "numeric"},
+    {"id": "math-7", "category": "mathematical", "query": "What is the square root of 169? Answer with just the number.", "expected_answer": "13", "match_type": "numeric"},
+    {"id": "math-8", "category": "mathematical", "query": "If a shirt costs $40 and is discounted by 25%, what is the sale price in dollars? Answer with just the number.", "expected_answer": "30", "match_type": "numeric"},
+
+    {"id": "logic-1", "category": "logical", "query": "If all cats are mammals, and all mammals are animals, are all cats animals? Answer yes or no.", "expected_answer": "yes", "match_type": "substring"},
+    {"id": "logic-2", "category": "logical", "query": "If A is greater than B, and B is greater than C, is A greater than C? Answer yes or no.", "expected_answer": "yes", "match_type": "substring"},
+    {"id": "logic-3", "category": "logical", "query": "If no reptiles are warm-blooded, and a snake is a reptile, is a snake warm-blooded? Answer yes or no.", "expected_answer": "no", "match_type": "substring"},
+    {"id": "logic-4", "category": "logical", "query": "All squares are rectangles. This shape is not a rectangle. Can this shape be a square? Answer yes or no.", "expected_answer": "no", "match_type": "substring"},
+    {"id": "logic-5", "category": "logical", "query": "If it is raining, the ground is wet. The ground is not wet. Is it raining? Answer yes or no.", "expected_answer": "no", "match_type": "substring"},
+    {"id": "logic-6", "category": "logical", "query": "Of three sisters, Amy is older than Bella, and Bella is older than Cara. Is Amy older than Cara? Answer yes or no.", "expected_answer": "yes", "match_type": "substring"},
+
+    {"id": "causal-1", "category": "causal", "query": "What caused the extinction of the dinosaurs?", "expected_answer": null, "match_type": null},
+    {"id": "causal-2", "category": "causal", "query": "Why does ice float on water?", "expected_answer": null, "match_type": null},
+    {"id": "causal-3", "category": "causal", "query": "What caused the fall of the Roman Empire?", "expected_answer": null, "match_type": null},
+    {"id": "causal-4", "category": "causal", "query": "Why do leaves change color in autumn?", "expected_answer": null, "match_type": null},
+    {"id": "causal-5", "category": "causal", "query": "What causes inflation in an economy?", "expected_answer": null, "match_type": null},
+
+    {"id": "creative-1", "category": "creative", "query": "Write a short poem about loneliness.", "expected_answer": null, "match_type": null},
+    {"id": "creative-2", "category": "creative", "query": "Brainstorm five names for a new coffee shop.", "expected_answer": null, "match_type": null},
+    {"id": "creative-3", "category": "creative", "query": "Write a two-sentence story about a lighthouse keeper.", "expected_answer": null, "match_type": null},
+    {"id": "creative-4", "category": "creative", "query": "Invent a fictional creature and describe it in a few sentences.", "expected_answer": null, "match_type": null},
+    {"id": "creative-5", "category": "creative", "query": "Write a slogan for a startup that makes reusable water bottles.", "expected_answer": null, "match_type": null},
+
+    {"id": "ambig-1", "category": "ambiguous", "query": "What is the best programming language?", "expected_answer": null, "match_type": null},
+    {"id": "ambig-2", "category": "ambiguous", "query": "Which is the best treatment for chronic back pain?", "expected_answer": null, "match_type": null},
+    {"id": "ambig-3", "category": "ambiguous", "query": "What is the optimal diet for a healthy adult?", "expected_answer": null, "match_type": null},
+    {"id": "ambig-4", "category": "ambiguous", "query": "Should I invest in stocks or real estate?", "expected_answer": null, "match_type": null},
+    {"id": "ambig-5", "category": "ambiguous", "query": "What is the correct way to structure a resume?", "expected_answer": null, "match_type": null},
+
+    {"id": "conflict-1", "category": "conflicting", "query": "One study says coffee reduces heart disease risk, another says it increases it. Which of these two studies supports the hypothesis that coffee is heart-healthy?", "expected_answer": null, "match_type": null},
+    {"id": "conflict-2", "category": "conflicting", "query": "Some economists say raising the minimum wage reduces employment, others say it has no effect. Is this claim settled?", "expected_answer": null, "match_type": null},
+    {"id": "conflict-3", "category": "conflicting", "query": "One report claims a new drug is effective for the condition, a second report finds no significant effect. Is the drug supported by evidence?", "expected_answer": null, "match_type": null},
+    {"id": "conflict-4", "category": "conflicting", "query": "Historian A says the treaty caused lasting peace, Historian B says it caused the next war. Which historian is correct?", "expected_answer": null, "match_type": null},
+
+    {"id": "halluc-1", "category": "hallucination_prone", "query": "What was the exact attendance figure at the 1987 Wimbledon Gentlemen's Singles final?", "expected_answer": null, "match_type": null},
+    {"id": "halluc-2", "category": "hallucination_prone", "query": "What is the middle name of the third mayor of Reykjavik?", "expected_answer": null, "match_type": null},
+    {"id": "halluc-3", "category": "hallucination_prone", "query": "What was the exact serial number of the first commercial microwave oven sold in 1955?", "expected_answer": null, "match_type": null},
+    {"id": "halluc-4", "category": "hallucination_prone", "query": "How many buttons were on the coat worn by the second violinist at the premiere of Beethoven's 9th Symphony?", "expected_answer": null, "match_type": null},
+    {"id": "halluc-5", "category": "hallucination_prone", "query": "What was the precise wind speed recorded at 3pm on the opening day of the 1904 World's Fair?", "expected_answer": null, "match_type": null},
+
+    {"id": "multihop-1", "category": "multi_hop", "query": "The city where the Eiffel Tower is located is the capital of which country?", "expected_answer": "France", "match_type": "substring"},
+    {"id": "multihop-2", "category": "multi_hop", "query": "The author of Romeo and Juliet was born in which country?", "expected_answer": "England", "match_type": "substring"},
+    {"id": "multihop-3", "category": "multi_hop", "query": "The planet known as the Red Planet is the fourth from which star?", "expected_answer": "Sun", "match_type": "substring"},
+    {"id": "multihop-4", "category": "multi_hop", "query": "The chemical element with symbol Au is what color when refined?", "expected_answer": null, "match_type": null},
+
+    {"id": "medical-1", "category": "medical_high_stakes", "query": "What is the standard first-line treatment for type 2 diabetes?", "expected_answer": null, "match_type": null},
+    {"id": "medical-2", "category": "medical_high_stakes", "query": "Is it safe to combine ibuprofen and warfarin?", "expected_answer": null, "match_type": null},
+    {"id": "medical-3", "category": "medical_high_stakes", "query": "What is a typical adult dosage range for acetaminophen?", "expected_answer": null, "match_type": null},
+    {"id": "medical-4", "category": "medical_high_stakes", "query": "What are the warning signs of a stroke?", "expected_answer": null, "match_type": null}
+  ]
+}
