@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: neurollm
+    runtime: docker
+    dockerfilePath: ./render.Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: ENABLE_LOCAL_MODEL
+        value: "0"
+      - key: DEFAULT_MODEL
+        value: mock
+      - key: DATABASE_URL
+        value: sqlite:///./ai_brain.db

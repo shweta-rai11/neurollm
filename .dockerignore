@@ -1,0 +1,17 @@
+# Used by the root Dockerfile (single-container Space/generic-host build).
+.git
+.gitignore
+
+backend/.venv
+backend/**/__pycache__
+backend/**/*.pyc
+backend/.pytest_cache
+backend/ai_brain.db
+backend/.env
+
+frontend/node_modules
+frontend/dist
+frontend/ios
+frontend/android
+frontend/.env.production
+frontend/*.tsbuildinfo

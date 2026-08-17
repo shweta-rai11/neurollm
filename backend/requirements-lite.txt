@@ -1,0 +1,23 @@
+# Trimmed requirements for free-tier deployment (e.g. Render's 512MB free
+# web service) where the local activation-inspectable model can't run
+# anyway. Excludes torch/transformers/accelerate -- every import of those
+# in the app is already lazy (inside functions, not at module level; see
+# app/llm/local_hf_provider.py and app/activations/), so the app boots and
+# runs fine without them installed as long as ENABLE_LOCAL_MODEL=0 (the
+# deploy config sets this) so "local_hf" is never offered/selected.
+# Keep this in sync with requirements.txt for every package EXCEPT the
+# three heavy ML ones.
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.0
+python-dotenv>=1.0
+sqlalchemy>=2.0
+openai>=1.12
+scikit-learn>=1.3
+numpy>=1.24
+joblib>=1.3
+pillow>=10.0
+scipy>=1.11
+cryptography>=42.0
+python-multipart>=0.0.9
+httpx>=0.26

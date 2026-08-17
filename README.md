@@ -129,6 +129,27 @@ Vite and Tailwind CSS, charts via Recharts, motion via Framer Motion, icons via 
 
 ---
 
+## Live demo
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/shweta-rai11/neurollm)
+
+One click deploys this repo to Render's free tier using `render.yaml` (no config needed - repo,
+plan, and env vars are already defined there). Free-tier hosting has real constraints, so what you
+get there is deliberately scoped down from the full app described in this README:
+
+- Render's free web service has 512MB RAM, not enough to run the local activation-inspectable
+  model, so that deploy runs `ENABLE_LOCAL_MODEL=0` - only the offline `mock` provider is
+  available. Every heuristic, routing, and visualization feature works; real activation
+  extraction, Research Mode, the category probe, and retrieval-grounded verification do not,
+  since none of those exist without a real model to inspect (see [Architecture](#architecture)).
+- The free instance spins down after 15 minutes idle and cold-starts on the next request (10-30s).
+- This is intentionally the lightweight path, not a compromise made silently: `backend/requirements-lite.txt`
+  and `render.Dockerfile` are separate from the full `backend/requirements.txt`/`Dockerfile` used
+  for a real deployment (a machine with enough RAM for `local_hf`, e.g. via the root `Dockerfile`)
+  or local use via `run.sh`.
+
+---
+
 ## Setup & run
 
 The app works fully with **zero API keys and zero model download** out of the box - `MockProvider`
@@ -206,6 +227,15 @@ docker compose up
 Backend on `http://localhost:8000`, frontend on `http://localhost:3000`. The local model runs
 CPU-only in this container (no Apple MPS passthrough) - set `ENABLE_LOCAL_MODEL=0` to hide it if
 you only need `mock`/OpenAI.
+
+There are three separate Docker paths in this repo, each for a different situation - none of them
+change the others:
+
+| File(s) | Use case |
+|---|---|
+| `docker-compose.yml` + `backend/Dockerfile` + `frontend/Dockerfile` | Local dev with the original two-service layout (separate backend/frontend containers). |
+| `Dockerfile` (root) | Single-container deploy with the **full** app, including the local model (`backend/requirements.txt`, includes torch/transformers) - for a host with enough RAM. |
+| `render.Dockerfile` + `render.yaml` | Single-container deploy for **free-tier hosts** (`backend/requirements-lite.txt`, no torch/transformers) - see [Live demo](#live-demo). |
 
 ### Environment variables
 
