@@ -117,7 +117,7 @@ export default function Evolution() {
               </table>
             </div>
           ) : (
-            <p className="text-sm text-ink-muted">No task-specific profiles yet — ask a few questions from the Overview tab.</p>
+            <p className="text-sm text-ink-muted">No task-specific profiles yet - ask a few questions from the Overview tab.</p>
           )}
         </>
       ) : null}

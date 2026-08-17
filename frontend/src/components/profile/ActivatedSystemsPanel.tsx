@@ -45,7 +45,7 @@ export default function ActivatedSystemsPanel({ regions, taskCategory, candidate
       <div>
         <div className="mb-2 flex items-center gap-1.5 section-label">
           Candidate systems for this task
-          <InfoTooltip text="A fixed, designed mapping from task category to illustrative virtual-system names (spec section 8) — categorical, not individually quantified. Named after real neuroanatomy as a metaphor, not a claim that this software activates those regions." />
+          <InfoTooltip text="A fixed, designed mapping from task category to illustrative virtual-system names (spec section 8) - categorical, not individually quantified. Named after real neuroanatomy as a metaphor, not a claim that this software activates those regions." />
         </div>
         <div className="flex flex-wrap gap-1.5">
           {candidateSystems.map((system) => (

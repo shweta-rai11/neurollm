@@ -3,7 +3,7 @@
 
 `select_pathway()` is a pure, synchronous decision function -- easy to unit
 test without any model call. The actual VERIFY pathway (self-consistency +
-a self-verifier LLM call + abstention framing) necessarily talks to a real
+a self-verifier LLM call and abstention framing) necessarily talks to a real
 provider, so it lives here as the async `run_verification_pathway()` rather
 than being pushed up into the route handler, since routing the *next* step
 is exactly the executive controller's job per the spec.
@@ -144,7 +144,7 @@ async def run_verification_pathway(
     uncertainty: UncertaintyResult,
     initial_hrs: HallucinationRisk,
 ) -> tuple[str, HallucinationRisk, str, str, list[SearchResult]]:
-    """Self-consistency + self-verifier check, plus real retrieval-grounded
+    """Self-consistency and self-verifier check, plus real retrieval-grounded
     fact-checking when a search API key is configured (see app.retrieval).
     Returns (final_answer, refined_hrs, verifier_raw_text, retrieval_raw_text,
     search_results). Both raw texts are surfaced in research mode so neither

@@ -40,7 +40,7 @@ export default function Privacy() {
     setError(null)
     try {
       await resetBiometric(profileId)
-      setMessage('Fingerprint templates removed. Your learned computational profile was kept — re-enroll to link a fingerprint again.')
+      setMessage('Fingerprint templates removed. Your learned computational profile was kept - re-enroll to link a fingerprint again.')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Reset failed.')
     } finally {
@@ -75,11 +75,11 @@ export default function Privacy() {
         <div className="flex flex-col gap-3 text-sm leading-relaxed text-ink-secondary">
           <p>Fingerprints are sensitive biometric data. This app handles them as follows:</p>
           <ul className="list-inside list-disc space-y-1.5 text-ink-secondary">
-            <li>The raw fingerprint image is processed in memory for one request and is <strong className="text-ink-primary">never written to disk or a database</strong> — anywhere.</li>
+            <li>The raw fingerprint image is processed in memory for one request and is <strong className="text-ink-primary">never written to disk or a database</strong> - anywhere.</li>
             <li>Only a derived numeric template (ridge/minutiae/pattern features) is stored, and it's <strong className="text-ink-primary">encrypted at rest</strong>.</li>
-            <li>Enrollment requires explicit consent — it's rejected otherwise.</li>
-            <li>Your fingerprint is used only as an identity/personalization key. It is never used to infer a cognitive trait — see the Overview and About pages.</li>
-            <li>This app has no account/login system. Your <code className="rounded bg-panel-light px-1 py-0.5 font-mono text-[11px]">profile_id</code> is kept in your browser's local storage, not a hardened session — clearing browser data loses the link to your profile (the profile itself remains on the server until deleted).</li>
+            <li>Enrollment requires explicit consent - it's rejected otherwise.</li>
+            <li>Your fingerprint is used only as an identity/personalization key. It is never used to infer a cognitive trait - see the Overview and About pages.</li>
+            <li>This app has no account/login system. Your <code className="rounded bg-panel-light px-1 py-0.5 font-mono text-[11px]">profile_id</code> is kept in your browser's local storage, not a hardened session - clearing browser data loses the link to your profile (the profile itself remains on the server until deleted).</li>
             <li>You can export, reset your biometric enrollment, or fully delete your profile below at any time.</li>
           </ul>
         </div>
@@ -88,7 +88,7 @@ export default function Privacy() {
       {!profileId ? (
         <div className="glass-panel flex flex-col items-center gap-4 p-10 text-center">
           <Fingerprint size={32} className="text-ink-muted" />
-          <p className="text-sm text-ink-secondary">No profile loaded — nothing to manage yet.</p>
+          <p className="text-sm text-ink-secondary">No profile loaded - nothing to manage yet.</p>
           <Link to="/profile/enroll" className="rounded-lg border border-cyan-accent/40 bg-cyan-faint px-4 py-2 text-sm font-medium text-cyan-accent hover:bg-cyan-accent/20">
             Scan fingerprint
           </Link>

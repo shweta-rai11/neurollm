@@ -5,7 +5,7 @@
  * (tailwind.config.js): categorical hues are assigned per fixed entity (never
  * per rank), status colors (status-good/caution/warning, plus the cyan/violet
  * brand accents used as the neutral "info" band) are reserved for state and
- * always paired with a text label — never color alone. Hex values below
+ * always paired with a text label - never color alone. Hex values below
  * mirror the BrainVisualization component's region palette so region color
  * coding reads consistently everywhere in the app.
  */
@@ -25,8 +25,8 @@ export const REGION_COLORS: Record<keyof RegionScores, string> = {
 export const NEUROMOD_COLORS: Record<keyof NeuromodulatorSignals, string> = {
   dopamine_like: '#a78bfa', // reward/confidence proxy
   serotonin_like: '#2dd4bf', // stability
-  norepinephrine_like: '#f5a524', // alertness/unexpectedness — reserved caution color
-  acetylcholine_like: '#818cf8', // attention/engagement — echoes Verification region
+  norepinephrine_like: '#f5a524', // alertness/unexpectedness - reserved caution color
+  acetylcholine_like: '#818cf8', // attention/engagement - echoes Verification region
 }
 
 export const PATHWAY_COLORS: Record<Pathway, string> = {

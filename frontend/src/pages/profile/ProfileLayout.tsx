@@ -10,7 +10,7 @@ const TABS = [
   { to: '/profile/privacy', label: 'Privacy', icon: ShieldCheck },
 ]
 
-/** Local tab bar for the /profile/* hub — kept off the main top nav (see
+/** Local tab bar for the /profile/* hub - kept off the main top nav (see
  * Header.tsx) so the primary navigation doesn't overflow with 5 sub-pages. */
 export default function ProfileLayout() {
   return (

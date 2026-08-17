@@ -18,7 +18,7 @@ export interface RegionMeta {
   ry: number
   /** Hex color used for fill/glow -- mirrors utils/colors.ts REGION_COLORS. */
   color: string
-  /** Static caption anchor point + text-anchor, hand-placed to sit in the
+  /** Static caption anchor point and text-anchor, hand-placed to sit in the
    * margin around the silhouette without overlapping it or other labels. */
   labelX: number
   labelY: number

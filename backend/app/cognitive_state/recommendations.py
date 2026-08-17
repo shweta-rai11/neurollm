@@ -73,7 +73,7 @@ def build_recommendations(
 
     if uncertainty is not None and uncertainty.response_agreement > 80:
         recs.append(Recommendation(
-            title="High agreement — verify anyway",
+            title="High agreement - verify anyway",
             detail="Candidate responses are highly consistent, but consistency does not guarantee correctness. Agreement reduces estimated uncertainty; it is not proof of truth.",
             icon="check-circle",
             severity="info",

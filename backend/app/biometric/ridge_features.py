@@ -29,7 +29,7 @@ class RidgeFields:
 
 
 def compute_orientation_field(gray: np.ndarray, block_size: int = BLOCK_SIZE) -> tuple[np.ndarray, np.ndarray]:
-    """Per-block ridge orientation + coherence via the gradient structure
+    """Per-block ridge orientation and coherence via the gradient structure
     tensor. Ridge orientation is perpendicular to the dominant gradient
     direction, and doubling the angle (the standard trick for a
     pi-periodic quantity) lets per-block tensors be smoothed by simple

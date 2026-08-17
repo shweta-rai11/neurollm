@@ -280,7 +280,7 @@ def _creative_pool(query: str) -> list[str]:
         f"Idea 1: {snippet} reimagined through a nostalgic, retro lens.",
         f"Idea 2: A minimalist take on {snippet}, stripped down to its emotional core.",
         f"Idea 3: A bold, high-energy version of {snippet} aimed at a younger audience.",
-        f"Idea 4: An unexpected mashup — combine {snippet} with an unrelated theme for novelty.",
+        f"Idea 4: An unexpected mashup - combine {snippet} with an unrelated theme for novelty.",
         f"Idea 5: A story-driven approach to {snippet}, built around a small narrative.",
         f"Idea 6: A playful, humorous spin on {snippet}.",
         f"Idea 7: A quiet, understated take on {snippet} that lets the idea breathe.",
@@ -295,12 +295,12 @@ def _predictive_pool(query: str) -> list[str]:
     # query category must never be answered as settled fact.
     return [
         "This is genuinely uncertain. Based on currently available signals, Option A appears to have a slight edge, but that could easily change.",
-        "There's no clear consensus here — some indicators favor Option B, while others point to a close contest.",
+        "There's no clear consensus here - some indicators favor Option B, while others point to a close contest.",
         "It's hard to say with confidence. A number of observers lean toward Option C, though this is far from settled.",
         "The outcome is unpredictable. Option A, Option B, or an unexpected alternative could all plausibly happen.",
         "Views are mixed: some evidence points to Option B, other evidence points to Option D, so no single answer is reliable here.",
         "This can't be answered with certainty. Multiple outcomes remain plausible, and any specific prediction should be treated with skepticism.",
-        "Opinions diverge sharply — roughly half the relevant signals point one way, half the other, so it's essentially a toss-up.",
+        "Opinions diverge sharply - roughly half the relevant signals point one way, half the other, so it's essentially a toss-up.",
         "I would avoid committing to a single answer here; Option A and Option C both have credible paths, among other possibilities.",
         "Forecasts disagree: some models favor Option A, others favor Option D, and the gap between them is narrow.",
         "Nobody can say for sure. This depends on factors that haven't played out yet, so treat any single answer with caution.",

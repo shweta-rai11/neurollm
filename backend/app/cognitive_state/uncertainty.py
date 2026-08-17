@@ -47,7 +47,7 @@ def _lexical_similarity(a: str, b: str) -> float:
 
 
 def _try_tfidf_similarity_matrix(texts: list[str]) -> list[list[float]] | None:
-    """Attempt TF-IDF + cosine similarity. Returns None if sklearn/numpy unavailable
+    """Attempt TF-IDF and cosine similarity. Returns None if sklearn/numpy unavailable
     or the corpus is degenerate (e.g. all-empty), triggering the lexical fallback.
     """
     try:

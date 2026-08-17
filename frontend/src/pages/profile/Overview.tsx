@@ -82,7 +82,7 @@ export default function Overview() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           rows={3}
-          placeholder="Ask a question — your profile personalizes how it's routed…"
+          placeholder="Ask a question - your profile personalizes how it's routed…"
           className="w-full resize-none rounded-lg border border-panel-border bg-panel-light/60 px-3 py-2 text-sm text-ink-primary placeholder:text-ink-muted focus:border-cyan-accent/50 focus:outline-none"
         />
         <div className="flex items-end gap-4">

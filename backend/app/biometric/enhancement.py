@@ -1,7 +1,7 @@
-"""Gabor-filter ridge enhancement + binarization (Hong, Wan & Jain 1998,
+"""Gabor-filter ridge enhancement and binarization (Hong, Wan & Jain 1998,
 section III-D): each block is convolved with a Gabor kernel tuned to that
 block's own measured orientation/frequency, which sharpens ridge/valley
-contrast enough for reliable skeletonization + minutiae extraction.
+contrast enough for reliable skeletonization and minutiae extraction.
 """
 from __future__ import annotations
 

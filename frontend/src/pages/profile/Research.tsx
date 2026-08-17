@@ -54,7 +54,7 @@ export default function Research() {
 
         {!profileId ? (
           <p className="mb-4 rounded-lg border border-status-caution/30 bg-status-caution/10 px-3 py-2 text-xs text-status-caution">
-            No profile loaded — Condition C will be identical to Condition B by construction. Scan a fingerprint
+            No profile loaded - Condition C will be identical to Condition B by construction. Scan a fingerprint
             first for a meaningful comparison.
           </p>
         ) : null}
@@ -121,7 +121,7 @@ export default function Research() {
                       <span className="text-xs text-ink-muted">{c.label}</span>
                     </td>
                     <td className="py-2 pr-4 text-ink-secondary">{c.n}</td>
-                    <td className="py-2 pr-4 text-ink-secondary">{c.accuracy != null ? `${Math.round(c.accuracy * 100)}%` : '—'}</td>
+                    <td className="py-2 pr-4 text-ink-secondary">{c.accuracy != null ? `${Math.round(c.accuracy * 100)}%` : '-'}</td>
                     <td className="py-2 pr-4 text-ink-secondary">{c.mean_hallucination_risk.toFixed(2)}</td>
                     <td className="py-2 pr-4 text-ink-secondary">{Math.round(c.abstention_rate * 100)}%</td>
                   </tr>

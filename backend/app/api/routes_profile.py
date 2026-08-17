@@ -172,13 +172,13 @@ async def research_compare(req: ResearchCompareRequest, db: Session = Depends(ge
             accuracy=_accuracy(a_scores), mean_hallucination_risk=0.0, abstention_rate=0.0,
         ),
         ConditionSummary(
-            condition="B", label="LLM + behavioral computational profile (anonymous)", n=n,
+            condition="B", label="LLM and behavioral computational profile (anonymous)", n=n,
             accuracy=_accuracy(b_scores),
             mean_hallucination_risk=(sum(b_risk) / len(b_risk)) if b_risk else 0.0,
             abstention_rate=(b_abstain / n) if n else 0.0,
         ),
         ConditionSummary(
-            condition="C", label="LLM + fingerprint-linked personalization + behavioral profile", n=n,
+            condition="C", label="LLM and fingerprint-linked personalization and behavioral profile", n=n,
             accuracy=_accuracy(c_scores),
             mean_hallucination_risk=(sum(c_risk) / len(c_risk)) if c_risk else 0.0,
             abstention_rate=(c_abstain / n) if n else 0.0,

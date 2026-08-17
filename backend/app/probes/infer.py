@@ -1,5 +1,5 @@
 """Loads the trained probe pipeline (see `train.py`) and predicts a question
-category from a query's task + activation features. Returns `None` (never a
+category from a query's task and activation features. Returns `None` (never a
 fabricated prediction) when no trained probe artifact exists yet."""
 from __future__ import annotations
 

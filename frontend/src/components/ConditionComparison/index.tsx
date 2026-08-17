@@ -15,7 +15,7 @@ function pct(value: number | null): string {
 
 /**
  * Spec section 10/22-9: "Normal LLM" (direct generation, no routing) vs
- * "virtual-brain routing + verification", scored for real accuracy on the
+ * "virtual-brain routing and verification", scored for real accuracy on the
  * benchmark's objectively-checkable items (factual/mathematical/logical),
  * plus abstention rate and hallucination risk elsewhere. This is the bounded,
  * honest version of the H3 experiment -- not a claim of benchmark-scale
@@ -55,11 +55,11 @@ export default function ConditionComparison() {
     <div className="glass-panel p-6">
       <div className="mb-2 flex items-center gap-2">
         <Beaker size={17} strokeWidth={1.75} className="text-cyan-accent" />
-        <h2 className="text-base font-semibold text-ink-primary">Condition Comparison — Normal vs. Virtual-Brain Routing</h2>
+        <h2 className="text-base font-semibold text-ink-primary">Condition Comparison - Normal vs. Virtual-Brain Routing</h2>
       </div>
       <p className="mb-4 text-xs leading-relaxed text-ink-secondary">
         Runs each selected benchmark item through Condition 1 (direct generation, no routing) and
-        Condition 4 (virtual-brain routing + verification), scoring real accuracy where the item has
+        Condition 4 (virtual-brain routing and verification), scoring real accuracy where the item has
         a checkable expected answer (factual / mathematical / logical categories). Uses the offline
         mock model by default so this runs without a model download; results with the local model
         will differ (and take longer).

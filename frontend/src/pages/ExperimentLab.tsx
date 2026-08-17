@@ -46,7 +46,7 @@ export default function ExperimentLab() {
         setNumSamples(cfg.default_num_samples)
       })
       .catch(() => {
-        // Config endpoint unavailable — keep the sane defaults above.
+        // Config endpoint unavailable - keep the sane defaults above.
       })
     return () => {
       cancelled = true
@@ -79,7 +79,7 @@ export default function ExperimentLab() {
           <h1 className="text-lg font-semibold text-ink-primary">Experiment Lab</h1>
         </div>
         <p className="mb-5 text-sm text-ink-secondary">
-          Run two queries side by side and compare their cognitive-state signatures — useful for
+          Run two queries side by side and compare their cognitive-state signatures - useful for
           seeing how task type (creative vs. factual, ambiguous vs. precise, risky vs. safe)
           shifts confidence, uncertainty, and brain-region activation.
         </p>

@@ -1,5 +1,5 @@
 """One-off, large-scale run of Condition 1 (direct generation) vs Condition 4
-(virtual-brain routing + verification) -- the real, larger-sample test of
+(virtual-brain routing and verification) -- the real, larger-sample test of
 whether routing/verification actually reduces hallucinations, using
 `data/benchmark.json` (54 hand-authored items) plus a slice of the real
 TruthfulQA/SimpleQA items fetched by `data/build_benchmark.py`.

@@ -86,7 +86,7 @@ export default function Enroll() {
    * hands off to the OS's own camera app and returns a photo directly,
    * which is more reliable on-device than a live getUserMedia preview
    * inside a WebView. In a regular browser (including installed-as-PWA),
-   * fall back to getUserMedia + an in-page live preview. */
+   * fall back to getUserMedia and an in-page live preview. */
   async function openCamera() {
     setError(null)
 
@@ -111,13 +111,13 @@ export default function Enroll() {
       const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
       streamRef.current = stream
       setCameraOpen(true)
-      // videoRef isn't mounted until the next render (cameraOpen just flipped) —
+      // videoRef isn't mounted until the next render (cameraOpen just flipped) -
       // attach on the following microtask.
       setTimeout(() => {
         if (videoRef.current) videoRef.current.srcObject = stream
       }, 0)
     } catch {
-      setError('Camera unavailable — your browser or device denied camera access. Use file upload instead.')
+      setError('Camera unavailable - your browser or device denied camera access. Use file upload instead.')
     }
   }
 
@@ -172,7 +172,7 @@ export default function Enroll() {
         </div>
         <p className="mb-5 text-sm text-ink-secondary">
           Upload a fingerprint image, or use your camera. The image is processed to identify or create your
-          Individual Computational Profile — a personalization key, not a biological reading (see Privacy).
+          Individual Computational Profile - a personalization key, not a biological reading (see Privacy).
         </p>
 
         <div className="flex flex-wrap gap-3">
@@ -265,7 +265,7 @@ export default function Enroll() {
               className="h-3.5 w-3.5 accent-cyan-accent"
             />
             I consent to processing this fingerprint image to create a personalization template. The raw image is
-            never stored — only an encrypted numeric template. See{' '}
+            never stored - only an encrypted numeric template. See{' '}
             <Link to="/profile/privacy" className="text-cyan-accent underline decoration-cyan-accent/30 underline-offset-2">
               Privacy
             </Link>
@@ -307,7 +307,7 @@ export default function Enroll() {
           <p className="max-w-md text-sm text-ink-secondary">
             {result.matched_existing_profile
               ? `This fingerprint matched an existing profile (similarity ${Math.round(result.match_similarity * 100)}%). ${enrolledCount > 0 ? 'One more enrollment was added to it.' : ''}`
-              : 'A new profile was created with neutral (0.5) computational parameters — nothing is assumed from your fingerprint morphology.'}
+              : 'A new profile was created with neutral (0.5) computational parameters - nothing is assumed from your fingerprint morphology.'}
           </p>
           <ProfileMappingDiagram />
           <div className="flex items-center gap-3">
@@ -323,7 +323,7 @@ export default function Enroll() {
                 onClick={() => setAutoAdvance(false)}
                 className="text-xs text-ink-muted underline decoration-ink-muted/40 underline-offset-2 hover:text-ink-secondary"
               >
-                taking you there automatically — stay here instead?
+                taking you there automatically - stay here instead?
               </button>
             ) : null}
           </div>

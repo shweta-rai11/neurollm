@@ -67,10 +67,10 @@ export default function FingerprintDetection() {
         </div>
         <p className="mb-2 text-sm leading-relaxed text-ink-secondary">
           Upload a fingerprint image to see what standard image-processing analysis detects in it
-          — ridge quality, minutiae (endings/bifurcations), and singularity-based pattern
+          - ridge quality, minutiae (endings/bifurcations), and singularity-based pattern
           classification (arch / loop / whorl). This is a self-contained detection tool: the image
           is analyzed in memory and discarded, and nothing here is enrolled, matched against an
-          identity, or stored — see the separate{' '}
+          identity, or stored - see the separate{' '}
           <a href="/profile" className="text-cyan-accent underline decoration-cyan-accent/30 underline-offset-2 hover:decoration-cyan-accent">
             Cognitive Profile
           </a>{' '}
@@ -159,7 +159,7 @@ export default function FingerprintDetection() {
               </div>
               <p className="mb-4 text-xs leading-relaxed text-ink-muted">
                 Classified from Poincaré-index singularity detection over the ridge orientation
-                field — a standard fingerprint image-processing technique, not identity matching.
+                field - a standard fingerprint image-processing technique, not identity matching.
               </p>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 <StatTile label="Minutiae" value={scan.quality.minutiae_detected} />

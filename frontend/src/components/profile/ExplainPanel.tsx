@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { HelpCircle, ChevronDown } from 'lucide-react'
 import type { ProfileInfluence } from '../../types/profile'
 
-/** The "Why this brain state?" panel (product spec section 11) — collapsed
+/** The "Why this brain state?" panel (product spec section 11) - collapsed
  * by default behind an Explain button, matching the spec's click-to-reveal
  * interaction rather than always-on clutter. */
 export default function ExplainPanel({ influence }: { influence: ProfileInfluence }) {

@@ -14,10 +14,10 @@ increased"). They exist for two reasons:
      human neurochemistry").
 
 Mapping used below:
-  dopamine_like        <- reward/confidence proxy: token probability margin + cross-sample agreement
-  serotonin_like        <- stability: cross-sample agreement + low task ambiguity
-  norepinephrine_like    <- alertness/unexpectedness: token entropy + task risk/ambiguity
-  acetylcholine_like    <- attention/engagement: context dependency + verification requirement
+  dopamine_like        <- reward/confidence proxy: token probability margin and cross-sample agreement
+  serotonin_like        <- stability: cross-sample agreement and low task ambiguity
+  norepinephrine_like    <- alertness/unexpectedness: token entropy and task risk/ambiguity
+  acetylcholine_like    <- attention/engagement: context dependency and verification requirement
 """
 from __future__ import annotations
 

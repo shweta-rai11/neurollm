@@ -1,10 +1,10 @@
 // Mirrors backend/app/models/profile_schemas.py field-for-field.
 // The Individual Computational Profile (ICP): a fingerprint-linked
-// personalization key + a behaviorally-learned parameter set. Nothing here
+// personalization key and a behaviorally-learned parameter set. Nothing here
 // is a biological measurement -- see NOT_A_BIOLOGICAL_MEASUREMENT below.
 
 export const NOT_A_BIOLOGICAL_MEASUREMENT =
-  "Simulated computational value — not a biological measurement of this user's brain, hormones, or cognition.";
+  "Simulated computational value - not a biological measurement of this user's brain, hormones, or cognition.";
 
 export const PROFILE_PARAM_NAMES = [
   'attention_baseline',

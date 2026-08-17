@@ -20,7 +20,7 @@ from app.database.database import init_db
 logger = logging.getLogger("ai_brain")
 
 # The built frontend (frontend/dist, produced by `npm run build`) is served
-# directly by this FastAPI app so the whole thing -- UI + API -- is one
+# directly by this FastAPI app so the whole thing -- UI and API -- is one
 # process on one port instead of two separate dev servers. This directory is
 # absent in a bare backend-only checkout/test run, which is fine: the app
 # still works as an API-only service in that case (see the catch-all route

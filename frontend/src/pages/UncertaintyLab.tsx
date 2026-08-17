@@ -52,7 +52,7 @@ export default function UncertaintyLab() {
         </div>
         <p className="mb-5 text-sm text-ink-secondary">
           Sample the model multiple times on the same query and measure how much the answers
-          agree — a response-consistency uncertainty estimate, not a claim about correctness.
+          agree - a response-consistency uncertainty estimate, not a claim about correctness.
         </p>
 
         <label className="section-label mb-1.5 block">Query</label>
@@ -149,7 +149,7 @@ export default function UncertaintyLab() {
       <p className="text-xs leading-relaxed text-ink-muted">
         <span className="font-semibold text-ink-secondary">Method: </span>
         this is a simplified, semantic-entropy-inspired approximation built from lightweight
-        text-similarity clustering — it is not the original published semantic-entropy method
+        text-similarity clustering - it is not the original published semantic-entropy method
         and should be read as a directional signal, not a calibrated probability. See README for
         methodology and references.
       </p>

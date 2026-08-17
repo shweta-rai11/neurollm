@@ -55,7 +55,7 @@ def _ensure_loaded() -> None:
         logger.info("Loading local model %s on %s ...", MODEL_NAME, device)
         try:
             tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-            # float16 + eager attention produced NaN/inf logits during
+            # float16 and eager attention produced NaN/inf logits during
             # sampling on MPS (observed in local testing) -- bfloat16 has
             # float32's exponent range and doesn't exhibit this, at the
             # same memory cost as float16.

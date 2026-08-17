@@ -15,8 +15,8 @@ const REGION_ORDER: (keyof RegionScores)[] = ['language', 'memory', 'reasoning',
 
 /**
  * A ChatResponse and an ExperimentSide (the /experiment endpoint's per-side
- * payload) both carry the fields this card needs — answer, cognitive_state,
- * task_analysis, pathway, hallucination_risk — so either is accepted
+ * payload) both carry the fields this card needs - answer, cognitive_state,
+ * task_analysis, pathway, hallucination_risk - so either is accepted
  * structurally.
  */
 type ExperimentCardResponse = ChatResponse | ExperimentSide

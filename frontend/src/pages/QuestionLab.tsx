@@ -85,7 +85,7 @@ export default function QuestionLab() {
         <p className="mb-5 text-sm text-ink-secondary">
           Enter a question to see its <strong className="text-ink-primary">predicted</strong> cognitive profile
           (text heuristics, before generation) against its <strong className="text-ink-primary">measured</strong>{' '}
-          profile (real activation statistics, after generation) — select the local model to populate the measured
+          profile (real activation statistics, after generation) - select the local model to populate the measured
           side and the category probe.
         </p>
 
@@ -146,7 +146,7 @@ export default function QuestionLab() {
             </div>
             {!regions?.measured ? (
               <p className="mb-3 text-xs text-status-caution">
-                No measured profile available — select the local model (and Research Mode is implied by this page) to
+                No measured profile available - select the local model (and Research Mode is implied by this page) to
                 populate real activation-derived scores. Currently showing predicted-only.
               </p>
             ) : null}

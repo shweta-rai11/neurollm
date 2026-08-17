@@ -44,7 +44,7 @@ export default function EndocrinePanel({ neuromodulation, taskCategory }: Endocr
 
       <div className="mb-5 rounded-lg border border-status-caution/20 bg-status-caution/10 px-3 py-2 text-xs leading-relaxed text-ink-secondary">
         The simulator maintains an endocrine-style state because stress-related systems are hypothesized to influence
-        cognitive-state models — these are qualitative, computed labels, not a measurement of this user's hormones.
+        cognitive-state models - these are qualitative, computed labels, not a measurement of this user's hormones.
       </div>
 
       <div className="flex flex-col gap-4">

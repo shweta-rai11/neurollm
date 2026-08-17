@@ -106,7 +106,7 @@ export default function ActivationExplorer() {
         </div>
         <p className="mb-5 text-sm text-ink-secondary">
           Real, layer-by-layer hidden-state and attention statistics captured from a live forward
-          pass through the local model — not simulated. Requires the local model (research mode is
+          pass through the local model - not simulated. Requires the local model (research mode is
           implied by this page).
         </p>
 
@@ -150,7 +150,7 @@ export default function ActivationExplorer() {
 
       {result && !research ? (
         <div className="glass-panel p-6 text-sm text-status-caution">
-          No activation data available for this response — Activation Explorer only works with the
+          No activation data available for this response - Activation Explorer only works with the
           local model (<code className="font-mono text-xs">local_hf</code>), which was not used for this
           request. Select it above and try again.
         </div>

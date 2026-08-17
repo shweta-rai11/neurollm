@@ -34,7 +34,7 @@ export default function About() {
           NeuroLLM inspects real hidden states, attention weights, and token logits from a local,
           open-weight model (Qwen2.5-1.5B-Instruct) while it answers a question, combines them with
           deterministic text heuristics, and routes the question through a small set of reasoning
-          pathways — direct answer, analytical, creative, or verify-then-possibly-abstain — based on
+          pathways - direct answer, analytical, creative, or verify-then-possibly-abstain - based on
           an estimated hallucination-risk score. Everything is visualized as an interactive "virtual
           brain."
         </p>
@@ -49,7 +49,7 @@ export default function About() {
         <p>
           NeuroLLM does <strong className="font-semibold text-ink-primary">not</strong> claim that this language
           model has brain regions, hemispheres, hormones, emotions, or consciousness. There is no
-          "Language region" or "dopamine" inside the model — those labels stand in for measurable
+          "Language region" or "dopamine" inside the model - those labels stand in for measurable
           quantities (activation magnitude in a group of layers, token-probability margin, response
           consistency across samples, and so on) chosen because they're easier to read at a glance
           than a table of raw tensors. See the "How the numbers are produced" section below for
@@ -64,7 +64,7 @@ export default function About() {
             <li>Per-layer hidden-state L2 norms and per-layer attention entropy, read from an actual forward pass through the local model.</li>
             <li>Per-token entropy and top1/top2 probability margin, read from the actual logits used to sample each generated token.</li>
             <li>Multi-sample response-consistency uncertainty (semantic-entropy-inspired, see Uncertainty Lab).</li>
-            <li>A category probe (logistic regression / random forest / small MLP) trained on real activation features — see Question Lab and <code className="font-mono text-xs">docs/PROBE_RESULTS.md</code> for actual eval numbers, not projected ones.</li>
+            <li>A category probe (logistic regression / random forest / small MLP) trained on real activation features - see Question Lab and <code className="font-mono text-xs">docs/PROBE_RESULTS.md</code> for actual eval numbers, not projected ones.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-cyan-accent/20 bg-cyan-faint p-5">
@@ -73,15 +73,15 @@ export default function About() {
             <li>The five virtual "brain regions" (Language, Memory, Reasoning, Uncertainty, Verification) and their predicted/measured weighting formulas.</li>
             <li>The four "-like" neuromodulator signals (dopamine, serotonin, norepinephrine, acetylcholine) and how they adjust routing thresholds.</li>
             <li>The Hallucination Risk Score's weighting and the executive controller's pathway-selection thresholds.</li>
-            <li>The Language ↔ early/mid-layer and Reasoning ↔ late-layer association is a documented design heuristic drawn from general interpretability observations — not a validated, per-layer finding for this specific model.</li>
+            <li>The Language ↔ early/mid-layer and Reasoning ↔ late-layer association is a documented design heuristic drawn from general interpretability observations - not a validated, per-layer finding for this specific model.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-violet-accent/20 bg-violet-faint p-5">
           <div className="section-label mb-2 text-violet-accent">Open hypothesis</div>
           <ul className="list-inside list-disc space-y-1.5 text-sm text-ink-secondary">
-            <li>Whether activation-informed routing + verification measurably improves reliability over direct generation, beyond this MVP's small benchmark (see Experiment Lab's Condition Comparison).</li>
+            <li>Whether activation-informed routing and verification measurably improves reliability over direct generation, beyond this MVP's small benchmark (see Experiment Lab's Condition Comparison).</li>
             <li>Whether the probe's category predictions generalize beyond this project's ~50-item benchmark.</li>
-            <li>Whether this style of visualization helps a person calibrate trust in an answer — untested here.</li>
+            <li>Whether this style of visualization helps a person calibrate trust in an answer - untested here.</li>
           </ul>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function About() {
       <Section icon={Microscope} title="How the numbers are produced">
         <p>
           A query is scored on nine task-analysis dimensions (complexity, ambiguity, risk, and so
-          on) using deterministic text heuristics — this produces the <em>predicted</em> cognitive
+          on) using deterministic text heuristics - this produces the <em>predicted</em> cognitive
           profile, before any model call. When the local model is selected, one generation pass
           captures real hidden states, attention weights, and logits; these are reduced to a bounded
           feature summary and combine with the heuristics (and, if enabled, multi-sample uncertainty)
@@ -97,7 +97,7 @@ export default function About() {
           neuromodulation signals. The executive controller compares the hallucination-risk score
           and region activations against a set of thresholds (adjusted by the neuromodulation
           signals) to pick a pathway: DIRECT, ANALYTICAL, CREATIVE, or VERIFY. VERIFY runs a
-          self-consistency check plus a self-verification prompt, and — if risk stays high — wraps
+          self-consistency check plus a self-verification prompt, and - if risk stays high - wraps
           the answer in an explicit low-confidence framing instead of presenting it as settled.
         </p>
       </Section>
@@ -110,7 +110,7 @@ export default function About() {
           retrieval/evidence pathways, PostgreSQL/WebSockets, mechanistic-interpretability tooling
           (Captum/TransformerLens/SAE), and the lateralization-index experiment. The Memory region's
           "measured" score currently inherits its "predicted" value verbatim because there is no
-          retrieval pathway in this MVP to observe — that's a documented limitation, not a bug.
+          retrieval pathway in this MVP to observe - that's a documented limitation, not a bug.
         </p>
       </Section>
 
@@ -119,19 +119,19 @@ export default function About() {
           <li>
             The heuristic task-scoring and region-weighting formulas are{' '}
             <strong className="font-semibold text-ink-primary">not</strong> validated psychometric or
-            neuroscientific instruments — they are hand-designed, documented rules.
+            neuroscientific instruments - they are hand-designed, documented rules.
           </li>
           <li>
             Consistency across sampled responses is <strong className="font-semibold text-ink-primary">not
-            proof of correctness</strong> — a model can be confidently, consistently wrong.
+            proof of correctness</strong> - a model can be confidently, consistently wrong.
           </li>
           <li>
             The self-verifier (used in the VERIFY pathway) is the same model critiquing its own
-            candidates — a useful signal, but <strong className="font-semibold text-ink-primary">not
+            candidates - a useful signal, but <strong className="font-semibold text-ink-primary">not
             ground-truth verification</strong>.
           </li>
           <li>
-            The probe is trained on a small (~50-item) hand-authored benchmark — its reported
+            The probe is trained on a small (~50-item) hand-authored benchmark - its reported
             accuracy demonstrates the methodology, not a validated classifier.
           </li>
           <li>

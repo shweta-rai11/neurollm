@@ -54,7 +54,7 @@ export default function Dashboard() {
         setNumSamples(cfg.default_num_samples)
       })
       .catch(() => {
-        // Backend may not be running yet — the model selector just falls
+        // Backend may not be running yet - the model selector just falls
         // back to the "mock" default and the form still submits.
       })
   }, [])
@@ -92,13 +92,13 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col gap-6">
-      {/* What this page does, up front — not just discoverable via hover/About */}
+      {/* What this page does, up front - not just discoverable via hover/About */}
       <div className="glass-panel flex items-start gap-3 border-cyan-accent/20 p-4">
         <Info size={18} className="mt-0.5 shrink-0 text-cyan-accent" />
         <p className="text-xs leading-relaxed text-ink-secondary">
           <span className="font-medium text-ink-primary">How this works:</span> type a question below and submit it.
           NeuroLLM scores the question, generates an answer, and routes it through a virtual brain that estimates
-          cognitive demand and hallucination risk — shown below as region activations, a neuromodulation readout
+          cognitive demand and hallucination risk - shown below as region activations, a neuromodulation readout
           (computational metaphors, not biology), state meters, and a recommendation. Select the local model and
           enable Research Mode to see real activation statistics rather than text-only heuristics. See{' '}
           <Link to="/about" className="text-cyan-accent underline decoration-cyan-accent/30 underline-offset-2 hover:decoration-cyan-accent">
@@ -108,7 +108,7 @@ export default function Dashboard() {
         </p>
       </div>
 
-      {/* Demo presets — spec's three-question demonstration */}
+      {/* Demo presets - spec's three-question demonstration */}
       <div className="glass-panel flex flex-wrap items-center gap-2 p-4">
         <span className="section-label mr-1">Demo questions:</span>
         {DEMO_QUESTIONS.map((d) => (
@@ -241,7 +241,7 @@ export default function Dashboard() {
         )}
       </div>
 
-      {/* Bottom: response + explainability + recommendations */}
+      {/* Bottom: response and explainability and recommendations */}
       <AnimatePresence mode="wait">
         {result && (
           <motion.div

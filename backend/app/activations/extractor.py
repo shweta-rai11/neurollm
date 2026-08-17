@@ -13,7 +13,7 @@ Two passes are used:
   1. `model.generate(..., output_scores=True)` -- the *actual* logits used to
      sample each generated token, giving real per-token entropy/probability
      margins with no extra cost.
-  2. One additional forward pass over the full (prompt + generated) sequence
+  2. One additional forward pass over the full (prompt and generated) sequence
      with `output_hidden_states=True, output_attentions=True`, read only at
      the generated-token positions -- i.e. what the model attended to *while
      producing the answer*, not the prompt-only encoding.
@@ -53,7 +53,7 @@ class ActivationExtractor(Protocol):
 
 
 class LocalHFActivationExtractor:
-    """Wraps an already-loaded Qwen2.5-Instruct-family model + tokenizer."""
+    """Wraps an already-loaded Qwen2.5-Instruct-family model and tokenizer."""
 
     def __init__(self, model, tokenizer, device: str) -> None:
         self._model = model

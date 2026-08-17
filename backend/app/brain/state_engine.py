@@ -72,9 +72,9 @@ def _determine_modes(task: TaskAnalysis, global_state: GlobalState, pathway: str
 
 def _determine_status(global_state: GlobalState, pathway: str) -> str:
     if pathway == "VERIFY":
-        return "HIGH HALLUCINATION RISK — VERIFICATION TRIGGERED"
+        return "HIGH HALLUCINATION RISK - VERIFICATION TRIGGERED"
     if global_state.uncertainty > 70:
-        return "HIGH UNCERTAINTY — VERIFICATION RECOMMENDED"
+        return "HIGH UNCERTAINTY - VERIFICATION RECOMMENDED"
     if global_state.difficulty > 75:
         return "HIGH DIFFICULTY"
     if global_state.confidence > 75 and global_state.uncertainty < 35:

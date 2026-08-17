@@ -10,7 +10,7 @@ interface MeterProps {
   /**
    * Raw hex color for the fill, applied as an inline style. Use this instead
    * of fillClassName when the color comes from a runtime lookup (e.g. a
-   * per-hormone map) — Tailwind's JIT scanner can't see dynamically
+   * per-hormone map) - Tailwind's JIT scanner can't see dynamically
    * interpolated `bg-[...]` class names, only literal ones written in source.
    */
   fillColor?: string
@@ -23,7 +23,7 @@ interface MeterProps {
 
 /**
  * Animated horizontal meter: `meter-track`/`meter-fill` (defined in index.css)
- * give the recessive track + accent fill; framer-motion animates the width
+ * give the recessive track and accent fill; framer-motion animates the width
  * transition on mount/update per the dataviz "meter" convention (fill carries
  * magnitude, unfilled track is a lighter step of the same ramp).
  */

@@ -1,7 +1,7 @@
 """POST /experiment -- A/B compare two queries' cognitive states.
 POST /experiment/benchmark -- spec section 10's condition comparison: for
 each benchmark item, run Condition 1 (direct, no routing) vs Condition 4
-(virtual-brain routing + verification) and score real accuracy where the
+(virtual-brain routing and verification) and score real accuracy where the
 item has a checkable `expected_answer`.
 """
 from __future__ import annotations

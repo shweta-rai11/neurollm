@@ -48,7 +48,7 @@ async function extractErrorMessage(response: Response): Promise<string> {
       if (typeof body.error === 'string') return body.error
     }
   } catch {
-    // response had no JSON body — fall through to status text
+    // response had no JSON body - fall through to status text
   }
   return `${response.status} ${response.statusText || 'Request failed'}`
 }
@@ -64,7 +64,7 @@ async function request<TResponse>(path: string, options: RequestInit = {}): Prom
       ...options,
     })
   } catch {
-    throw new Error('AI model unavailable — could not reach the backend.')
+    throw new Error('AI model unavailable - could not reach the backend.')
   }
 
   if (!response.ok) {
@@ -91,7 +91,7 @@ async function postForm<TResponse>(path: string, formData: FormData): Promise<TR
   try {
     response = await fetch(`${API_BASE}${path}`, { method: 'POST', body: formData })
   } catch {
-    throw new Error('AI model unavailable — could not reach the backend.')
+    throw new Error('AI model unavailable - could not reach the backend.')
   }
   if (!response.ok) {
     const message = await extractErrorMessage(response)
@@ -137,7 +137,7 @@ export function getProbeInfo(): Promise<ProbeInfoResponse> {
 }
 
 // ---------------------------------------------------------------------------
-// Individual Computational Profile: biometric identity + profile lifecycle
+// Individual Computational Profile: biometric identity and profile lifecycle
 // ---------------------------------------------------------------------------
 
 export function checkFingerprintQuality(file: Blob): Promise<QualityCheckResponse> {

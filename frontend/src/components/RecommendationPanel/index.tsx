@@ -48,7 +48,7 @@ export default function RecommendationPanel({ recommendations }: RecommendationP
 
       {recommendations.length === 0 ? (
         <p className="text-sm text-ink-muted">
-          No specific recommendations — this response appears nominal.
+          No specific recommendations - this response appears nominal.
         </p>
       ) : (
         <div className="flex flex-col gap-3">

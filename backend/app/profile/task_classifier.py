@@ -1,4 +1,4 @@
-"""Task/question -> category + candidate virtual systems (product spec
+"""Task/question -> category and candidate virtual systems (product spec
 sections 8 and 14).
 
 This is deliberately independent of the fingerprint/profile lookup: the

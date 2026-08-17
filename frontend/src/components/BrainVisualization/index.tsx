@@ -61,7 +61,7 @@ export default function BrainVisualization({ regions, mode, pathway, hallucinati
   return (
     <div className="glass-panel flex flex-col p-5">
       <div className="mb-1 flex items-center justify-between">
-        <h2 className="section-label">Virtual Brain — Region Activation</h2>
+        <h2 className="section-label">Virtual Brain - Region Activation</h2>
         {mode ? (
           <span className="badge border-panel-border bg-panel-light text-ink-muted">
             {mode === 'measured' ? 'Measured (activations)' : 'Predicted (pre-generation)'}
@@ -69,7 +69,7 @@ export default function BrainVisualization({ regions, mode, pathway, hallucinati
         ) : null}
       </div>
       <p className="mb-2 text-[11px] leading-snug text-ink-muted">
-        Each region glows in proportion to a computational signal — a functional analogy, not a
+        Each region glows in proportion to a computational signal - a functional analogy, not a
         reading of anatomical brain structure. Hover a region for details.
       </p>
 
@@ -214,7 +214,7 @@ export default function BrainVisualization({ regions, mode, pathway, hallucinati
       </div>
 
       <p className="mt-3 text-center text-[11px] leading-snug text-ink-muted">
-        Computational analogy — not a claim of biological brain structure or activity.
+        Computational analogy - not a claim of biological brain structure or activity.
       </p>
     </div>
   )

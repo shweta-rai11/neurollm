@@ -1,6 +1,6 @@
 """Trains a probe (logistic regression baseline, compared against a Random
 Forest and a small MLP) to predict a question's category from its task
-heuristic + real-activation feature vector.
+heuristic and real-activation feature vector.
 
 Run as: `.venv/bin/python -m app.probes.train` from `backend/`.
 

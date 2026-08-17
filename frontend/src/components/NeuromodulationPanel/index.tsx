@@ -11,15 +11,15 @@ interface NeuromodulationPanelProps {
 /**
  * Every value here is a "-like" computational variable derived from real
  * signals (response consistency, token/attention entropy, task heuristics)
- * — NEVER a biological hormone measurement. These also feed back into
+ * - NEVER a biological hormone measurement. These also feed back into
  * routing thresholds in the executive controller (see backend
- * app/brain/neuromodulation.py + executive_controller.py) rather than being
+ * app/brain/neuromodulation.py and executive_controller.py) rather than being
  * purely decorative.
  */
 const NEUROMOD_META: { key: keyof NeuromodulatorSignals; name: string; meaning: string }[] = [
   { key: 'dopamine_like', name: 'Dopamine-like', meaning: 'reward / confidence proxy (token probability margin, cross-sample agreement)' },
   { key: 'serotonin_like', name: 'Serotonin-like', meaning: 'stability (cross-sample agreement, low ambiguity)' },
-  { key: 'norepinephrine_like', name: 'Norepinephrine-like', meaning: 'alertness / unexpectedness (token entropy, task risk) — raises verification sensitivity' },
+  { key: 'norepinephrine_like', name: 'Norepinephrine-like', meaning: 'alertness / unexpectedness (token entropy, task risk) - raises verification sensitivity' },
   { key: 'acetylcholine_like', name: 'Acetylcholine-like', meaning: 'attention / engagement (context dependency, verification requirement)' },
 ]
 
@@ -36,7 +36,7 @@ export default function NeuromodulationPanel({ signals }: NeuromodulationPanelPr
       </div>
 
       <div className="mb-5 rounded-lg border border-violet-accent/20 bg-violet-faint px-3 py-2 text-xs leading-relaxed text-ink-secondary">
-        Computational variables inspired by neuromodulation — not biological hormone data. These
+        Computational variables inspired by neuromodulation - not biological hormone data. These
         also adjust routing thresholds in the executive controller (see About).
       </div>
 

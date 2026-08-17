@@ -9,7 +9,7 @@ interface UncertaintyPanelProps {
 }
 
 /**
- * "Evidence from model behavior" — never says "probability"; uses
+ * "Evidence from model behavior" - never says "probability"; uses
  * response-consistency / semantic-uncertainty language per the product spec.
  * Gracefully degrades to an empty-state message when uncertainty is null
  * (single-sample mode, or a backend that didn't attach it).
