@@ -147,7 +147,7 @@ you get there is deliberately scoped down from the full app described in this RE
   for a real deployment (a machine with enough RAM for `local_hf`, e.g. via the root `Dockerfile`)
   or local use via `run.sh`.
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/shweta-rai11/neurollm)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/shweta-rai11/NeuroLLM)
 
 That button deploys your own copy (forked repo or otherwise) the same way - reads `render.yaml`,
 no manual config.
