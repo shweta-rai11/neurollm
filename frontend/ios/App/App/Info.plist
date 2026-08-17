@@ -67,6 +67,6 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>NeuroLLM uses the camera to capture a fingerprint image for your Individual Computational Profile. The image is processed on-device/server per request and is never stored — only a derived numeric template is saved.</string>
+	<string>NeuroLLM uses the camera to capture a fingerprint image for your Individual Computational Profile. The image is processed on-device/server per request and is never stored - only a derived numeric template is saved.</string>
 </dict>
 </plist>

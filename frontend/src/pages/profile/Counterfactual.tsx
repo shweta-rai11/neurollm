@@ -104,7 +104,7 @@ export default function Counterfactual() {
               <StatTile label="Hallucination risk" value={result.baseline.hallucination_risk.toFixed(2)} />
               <StatTile
                 label="Agreement"
-                value={result.baseline.uncertainty_agreement != null ? `${Math.round(result.baseline.uncertainty_agreement)}%` : '—'}
+                value={result.baseline.uncertainty_agreement != null ? `${Math.round(result.baseline.uncertainty_agreement)}%` : '-'}
               />
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function Counterfactual() {
               <StatTile label="Hallucination risk" value={result.counterfactual.hallucination_risk.toFixed(2)} />
               <StatTile
                 label="Agreement"
-                value={result.counterfactual.uncertainty_agreement != null ? `${Math.round(result.counterfactual.uncertainty_agreement)}%` : '—'}
+                value={result.counterfactual.uncertainty_agreement != null ? `${Math.round(result.counterfactual.uncertainty_agreement)}%` : '-'}
               />
             </div>
           </div>

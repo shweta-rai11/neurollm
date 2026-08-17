@@ -12,7 +12,7 @@ export default {
           light: '#10151d',
           border: 'rgba(148, 163, 184, 0.12)',
         },
-        // Brand accents — used sparingly
+        // Brand accents - used sparingly
         cyan: {
           accent: '#22d3ee',
           dim: '#0e7490',
@@ -29,7 +29,7 @@ export default {
           secondary: '#9aa7b8',
           muted: '#5b6676',
         },
-        // Status palette — reserved, never reused for brand accents
+        // Status palette - reserved, never reused for brand accents
         status: {
           info: '#38bdf8',
           caution: '#f5a524',

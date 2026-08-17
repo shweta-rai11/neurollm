@@ -131,11 +131,10 @@ Vite and Tailwind CSS, charts via Recharts, motion via Framer Motion, icons via 
 
 ## Live demo
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/shweta-rai11/neurollm)
+**https://neurollm.onrender.com**
 
-One click deploys this repo to Render's free tier using `render.yaml` (no config needed - repo,
-plan, and env vars are already defined there). Free-tier hosting has real constraints, so what you
-get there is deliberately scoped down from the full app described in this README:
+Deployed on Render's free tier via `render.yaml`. Free-tier hosting has real constraints, so what
+you get there is deliberately scoped down from the full app described in this README:
 
 - Render's free web service has 512MB RAM, not enough to run the local activation-inspectable
   model, so that deploy runs `ENABLE_LOCAL_MODEL=0` - only the offline `mock` provider is
@@ -147,6 +146,11 @@ get there is deliberately scoped down from the full app described in this README
   and `render.Dockerfile` are separate from the full `backend/requirements.txt`/`Dockerfile` used
   for a real deployment (a machine with enough RAM for `local_hf`, e.g. via the root `Dockerfile`)
   or local use via `run.sh`.
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/shweta-rai11/neurollm)
+
+That button deploys your own copy (forked repo or otherwise) the same way - reads `render.yaml`,
+no manual config.
 
 ---
 

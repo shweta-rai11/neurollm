@@ -53,7 +53,7 @@ export default function History() {
         </div>
       ) : !items || items.length === 0 ? (
         <p className="text-sm text-ink-muted">
-          No analyses yet —{' '}
+          No analyses yet -{' '}
           <Link to="/" className="text-cyan-accent hover:underline">
             try the Dashboard
           </Link>
