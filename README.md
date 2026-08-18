@@ -306,25 +306,42 @@ above - see [Positioning](#positioning-what-this-is-and-what-it-explicitly-is-no
 - **H2** - activation-based uncertainty predicts hallucination risk: the Hallucination Risk Score is
   the mechanism, not a validated calibration.
 - **H3** - activation-informed routing and verification improves reliability over direct generation:
-  the Condition Comparison in Experiment Lab is a small, real, bounded test of this (see `data/README.md`
-  for exactly which categories are objectively scoreable) - not a benchmark-scale result.
+  tested at real scale below - the honest answer, on this run, is **no**.
 
-  Example real run (`local_hf`, 3 items/category, via `/api/experiment/benchmark`):
+  Real run (`local_hf`, 174 items - the hand-authored 54-item set plus 60 TruthfulQA and 60 SimpleQA
+  items fetched by `data/build_benchmark.py`; self-critique-only verification, no retrieval API key
+  configured for this run; script: `backend/app/experiments/run_large_benchmark.py`; full item-level
+  output: `data/large_benchmark_results.json`):
 
-  | Category | n | Normal accuracy | Routed accuracy | Mean hallucination risk |
-  |---|---|---|---|---|
-  | factual | 3 | 100% | 100% | 0.20 |
-  | mathematical | 3 | 33% | 33% | 0.11 |
-  | logical | 3 | 100% | 100% | 0.12 |
-  | hallucination_prone | 3 | n/a (no ground truth) | n/a | 0.42 |
+  | Category | n | Normal accuracy | Routed accuracy | Abstention rate | Mean hallucination risk |
+  |---|---|---|---|---|---|
+  | factual | 8 | 100% | 87.5% | 0% | 0.30 |
+  | logical | 6 | 66.7% | 66.7% | 0% | 0.18 |
+  | mathematical | 8 | 50% | 50% | 0% | 0.18 |
+  | multi_hop | 4 | 66.7% | 100% | 0% | 0.41 |
+  | simpleqa | 60 | 1.7% | 0% | 0% | 0.43 |
+  | truthfulqa | 60 | 0% | 0% | 3% | 0.43 |
+  | **overall (scored items, n=145)** | | **13.1%** | **12.4%** | | |
 
-  Read honestly: on this tiny sample, routing didn't change accuracy on the checkable categories
-  (both conditions used the same underlying answer for most items here - the router only intervenes
-  when its risk threshold is crossed) - but every `hallucination_prone` item correctly triggered the
-  VERIFY pathway with a visibly elevated risk score, and the mathematical failures (17×24 correct;
-  144÷12 and 15% of 200 both wrong) are a genuine limitation of the 1.5B model's arithmetic, not a
-  harness bug. This is the kind of result this comparison is for - surfacing real behavior,
-  including where routing doesn't yet help, not a validated win.
+  (`ambiguous`, `causal`, `conflicting`, `creative`, `hallucination_prone`, and `medical_high_stakes`
+  have no checkable ground truth - excluded from accuracy, included in the full JSON output.)
+
+  Read this honestly, because that's the entire point of running it: **routing did not improve
+  accuracy** - overall it was marginally worse (13.1% -> 12.4%), and on `factual` specifically it
+  actively hurt (100% -> 87.5%, one item flipped wrong). The one case it clearly helped was
+  `multi_hop` (66.7% -> 100%), but n=4 there is too small to read much into. This matches the
+  smaller 12-item sample from an earlier pass at this README, so it isn't a fluke of this run
+  specifically. The mechanism this points to: self-critique (the model checking its own prior
+  candidates) is a weak verification signal on its own - see the retrieval-grounded fact-check in
+  `app/retrieval/` for the upgrade path this result motivated, and note that this run had **no**
+  Brave Search key configured, so retrieval never fired (0% abstention nearly everywhere despite
+  hallucination risk regularly exceeding 0.4).
+
+  The very low `simpleqa`/`truthfulqa` scores (0-1.7%) are a real finding about this specific small
+  model, not a scoring artifact - spot-checking the transcripts shows the 1.5B model genuinely
+  repeating TruthfulQA's target misconceptions (e.g. "fortune cookies originated in China" - the
+  exact wrong answer that item is designed to catch) and genuinely not knowing SimpleQA's
+  deliberately obscure facts, plus occasional garbled/glitchy output typical of a model this small.
 - **H4/H5** (functional-specialization framework value; lateralization) are **not implemented** in
   this MVP - see [Limitations](#limitations).
 
